@@ -6,6 +6,8 @@ using Autofac.Core;
 namespace Autofac;
 
 /// <summary>
+/// 一个参数，可以向与指定类型完全匹配的站点提供值。当应用于基于反射的组件时，
+/// <see-cref=“Type”/>将与组件构造函数参数的类型进行匹配。当应用于基于代理的组件时，可以使用以下命令访问该参数
 /// A parameter that can supply values to sites that exactly
 /// match a specified type. When applied to a reflection-based
 /// component, <see cref="Type"/> will be matched against
