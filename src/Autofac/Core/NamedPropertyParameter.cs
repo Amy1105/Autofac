@@ -7,8 +7,8 @@ using Autofac.Util;
 namespace Autofac.Core;
 
 /// <summary>
-/// A property identified by name. When applied to a reflection-based
-/// component, the name will be matched against property names.
+/// 按名称标识的属性。当应用于基于反射的组件时，名称将与属性名称相匹配。
+/// A property identified by name. When applied to a reflection-based component, the name will be matched against property names.
 /// </summary>
 public class NamedPropertyParameter : ConstantParameter
 {

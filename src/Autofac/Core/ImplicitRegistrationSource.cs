@@ -10,6 +10,7 @@ using Autofac.Util.Cache;
 namespace Autofac.Core;
 
 /// <summary>
+/// 支持隐式关系的简单定义，例如<see cref="Lazy{T}"/>。
 /// Support simple definition of implicit relationships such as <see cref="Lazy{T}"/>.
 /// </summary>
 public abstract class ImplicitRegistrationSource : IRegistrationSource

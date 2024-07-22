@@ -6,6 +6,7 @@ using Autofac.Core.Registration;
 namespace Autofac.Core;
 
 /// <summary>
+/// 关于正在容器中注册的组件发生的信息。
 /// Information about the ocurrence of a component being registered
 /// with a container.
 /// </summary>

@@ -9,6 +9,7 @@ namespace Autofac.Features.Metadata;
 /// Support the <see cref="Meta{T}"/>
 /// types automatically whenever type T is registered with the container.
 /// Metadata values come from the component registration's metadata.
+/// 每当类型T在容器中注册时，自动支持<see-cref="Meta{T}"/>类型。元数据值来自组件注册的元数据。
 /// </summary>
 internal class MetaRegistrationSource : ImplicitRegistrationSource
 {

@@ -6,6 +6,7 @@ using Autofac.Core.Registration;
 namespace Autofac.Core;
 
 /// <summary>
+/// 当一个<see-cref="IRegicationSource"/>被添加到注册表时触发。
 /// Fired when an <see cref="IRegistrationSource"/> is added to the registry.
 /// </summary>
 public class RegistrationSourceAddedEventArgs : EventArgs

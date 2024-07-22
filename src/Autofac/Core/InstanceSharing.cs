@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 确定实例是否在生存期范围内共享。
 /// Determines whether instances are shared within a lifetime scope.
 /// </summary>
 public enum InstanceSharing

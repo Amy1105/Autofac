@@ -7,6 +7,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core;
 
 /// <summary>
+/// 根据组件提供的服务提供组件注册。
 /// Provides component registrations according to the services they provide.
 /// </summary>
 public interface IComponentRegistry : IDisposable, IAsyncDisposable

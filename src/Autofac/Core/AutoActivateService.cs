@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 服务用作“标志”，表示特定组件应在容器构建时自动激活。
 /// Service used as a "flag" to indicate a particular component should be
 /// automatically activated on container build.
 /// </summary>

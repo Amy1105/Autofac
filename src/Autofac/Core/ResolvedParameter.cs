@@ -6,8 +6,8 @@ using System.Reflection;
 namespace Autofac.Core;
 
 /// <summary>
-/// Flexible parameter type allows arbitrary values to be retrieved
-/// from the resolution context.
+/// 灵活的参数类型允许从解析上下文中检索任意值。
+/// Flexible parameter type allows arbitrary values to be retrieved from the resolution context.
 /// </summary>
 public class ResolvedParameter : Parameter
 {

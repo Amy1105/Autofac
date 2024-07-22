@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义一个接口，用于在管道构建期间访问可用的服务集。
 /// Defines an interface for accessing the set of services available during pipeline build time.
 /// </summary>
 public interface IComponentRegistryServices

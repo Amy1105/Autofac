@@ -8,6 +8,8 @@ namespace Autofac;
 /// and started as soon as the container is built. Autofac will not call the Start()
 /// method when subsequent instances are resolved. If this behavior is required, use
 /// an <c>OnActivated()</c> event handler instead.
+/// 当由组件实现时，一旦构建了容器，就会解析并启动组件的实例。解析后续实例时，Autofac不会调用Start（）方法。
+/// 如果需要此行为，则使用<c>OnActivated（）</c>事件处理程序。
 /// </summary>
 /// <remarks>
 /// <para>

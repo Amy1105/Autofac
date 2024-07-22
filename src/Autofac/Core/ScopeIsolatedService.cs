@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// <see cref=“Service”/>的装饰器，表示服务应该与当前范围隔离开来，因此对它的引用不会保留。允许稍后卸载隔离的服务。
 /// Decorator for a <see cref="Service"/> that indicates the service should
 /// be isolated from the current scope so references to it are not
 /// retained. Enables isolated services to be later unloaded.

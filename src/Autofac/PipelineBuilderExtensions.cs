@@ -14,6 +14,7 @@ public static class PipelineBuilderExtensions
     private const string AnonymousDescriptor = "anonymous";
 
     /// <summary>
+    /// 在解析管道中使用中间件回调。
     /// Use a middleware callback in a resolve pipeline.
     /// </summary>
     /// <param name="builder">The container builder.</param>

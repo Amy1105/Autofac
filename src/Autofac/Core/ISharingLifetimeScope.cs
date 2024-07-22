@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义生命周期的嵌套结构。
 /// Defines a nested structure of lifetimes.
 /// </summary>
 public interface ISharingLifetimeScope : ILifetimeScope

@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义可能的反射缓存使用类型。
 /// Defines the possible reflection cache usage types.
 /// </summary>
 [Flags]

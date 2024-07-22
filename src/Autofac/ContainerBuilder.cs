@@ -101,9 +101,10 @@ public sealed class ContainerBuilder
     public IDictionary<string, object?> Properties { get; }
 
     /// <summary>
+    /// 注册一个回调，该回调将在配置容器时调用。
     /// Register a callback that will be invoked when the container is configured.
     /// </summary>
-    /// <remarks>This is primarily for extending the builder syntax.</remarks>
+    /// <remarks>This is primarily for extending the builder syntax.这主要是为了扩展构建器语法</remarks>
     /// <param name="configurationCallback">Callback to execute.</param>
     public DeferredCallback RegisterCallback(Action<IComponentRegistryBuilder> configurationCallback)
     {
@@ -118,11 +119,13 @@ public sealed class ContainerBuilder
     }
 
     /// <summary>
+    /// 注册一个回调，该回调将在构建容器（或生存期作用域）时调用。
     /// Register a callback that will be invoked when the container (or lifetime scope) is built.
     /// </summary>
     /// <param name="buildCallback">Callback to execute.</param>
     /// <returns>The <see cref="ContainerBuilder"/> instance to continue registration calls.</returns>
     /// <remarks>
+    /// 如果此构建器用于构建新容器，则注册的构建回调的参数将是派生的<see cref=“IContainer”/>的实例，或者如果它用于为新的生命周期范围创建自定义注册，则参数将是<see cred=“ILifetimeScope”/>。
     /// The argument to the registered build callback will be an instance of the derived <see cref="IContainer" /> if this
     /// builder is being used to build a fresh container, or an <see cref="ILifetimeScope" /> if it's being used to
     /// create custom registrations for a new lifetime scope.
@@ -148,6 +151,7 @@ public sealed class ContainerBuilder
     }
 
     /// <summary>
+    /// 使用已进行的组件注册创建一个新容器。
     /// Create a new container with the component registrations that have been made.
     /// </summary>
     /// <param name="options">Options that influence the way the container is initialized.</param>
@@ -157,6 +161,9 @@ public sealed class ContainerBuilder
     /// Build enables support for the relationship types that come with Autofac (e.g.
     /// Func, Owned, Meta, Lazy, IEnumerable.) To exclude support for these types,
     /// first create the container, then call Update() on the builder.
+    /// 每次只能调用一次构建<see cref=“ContainerBuilder”/>
+    /// -这可以防止所提供实例的所有权问题。Build支持Autofac附带的关系类型（例如，Unc、Owned、Meta、Lazy、IEnumerable）。要排除对这些类型的支持，
+    /// 首先创建容器，然后在构建器上调用Update（）。
     /// </remarks>
     /// <returns>A new container with the configured component registrations.</returns>
     public IContainer Build(ContainerBuildOptions options = ContainerBuildOptions.None)
@@ -187,6 +194,7 @@ public sealed class ContainerBuilder
     }
 
     /// <summary>
+    /// 使用已进行的组件注册配置现有注册表。主要用于向子生命周期范围动态添加注册。
     /// Configure an existing registry with the component registrations
     /// that have been made. Primarily useful in dynamically adding registrations
     /// to a child lifetime scope.
@@ -231,13 +239,17 @@ public sealed class ContainerBuilder
         }
     }
 
+    /// <summary>
+    /// 注册默认适配器
+    /// </summary>
+    /// <param name="componentRegistry"></param>
     private void RegisterDefaultAdapters(IComponentRegistryBuilder componentRegistry)
     {
         this.RegisterGeneric(typeof(KeyedServiceIndex<,>)).As(typeof(IIndex<,>)).InstancePerLifetimeScope();
-        componentRegistry.AddRegistrationSource(new CollectionRegistrationSource());
-        componentRegistry.AddRegistrationSource(new OwnedInstanceRegistrationSource());
-        componentRegistry.AddRegistrationSource(new MetaRegistrationSource());
-        componentRegistry.AddRegistrationSource(new LazyRegistrationSource());
+        componentRegistry.AddRegistrationSource(new CollectionRegistrationSource()); 
+        componentRegistry.AddRegistrationSource(new OwnedInstanceRegistrationSource()); //Owned{T}
+        componentRegistry.AddRegistrationSource(new MetaRegistrationSource());  //Meta{T}
+        componentRegistry.AddRegistrationSource(new LazyRegistrationSource());  //Lazy{T}
         componentRegistry.AddRegistrationSource(new LazyWithMetadataRegistrationSource());
         componentRegistry.AddRegistrationSource(new StronglyTypedMetaRegistrationSource());
         componentRegistry.AddRegistrationSource(new GeneratedFactoryRegistrationSource());

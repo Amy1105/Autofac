@@ -4,8 +4,8 @@
 namespace Autofac.Core;
 
 /// <summary>
-/// Allows registrations to be made on-the-fly when unregistered
-/// services are requested (lazy registrations.)
+/// 允许在请求未注册的服务时即时进行注册（延迟注册）
+/// Allows registrations to be made on-the-fly when unregistered services are requested (lazy registrations.)
 /// </summary>
 public interface IRegistrationSource
 {

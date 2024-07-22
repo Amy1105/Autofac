@@ -9,6 +9,8 @@ using Autofac.Core.Registration;
 namespace Autofac;
 
 /// <summary>
+/// 用户定义模块的基类。模块可以将一组相关组件添加到容器中（<see cref="Load"/>）
+/// 或将跨领域功能附加到其他组件中（<see cref="AttachToComponent Registry"/>。
 /// Base class for user-defined modules. Modules can add a set of related components
 /// to a container (<see cref="Load"/>) or attach cross-cutting functionality
 /// to other components (<see cref="AttachToComponentRegistration"/>.

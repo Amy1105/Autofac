@@ -6,8 +6,8 @@ using Autofac.Core.Registration;
 namespace Autofac.Core;
 
 /// <summary>
-/// Represents a set of components and related functionality
-/// packaged together.
+/// 表示打包在一起的一组组件和相关功能。
+/// Represents a set of components and related functionality packaged together.
 /// </summary>
 public interface IModule
 {

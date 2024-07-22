@@ -6,8 +6,8 @@ using System.Reflection;
 namespace Autofac.Core;
 
 /// <summary>
-/// Delegate for predicates that can choose whether to remove a member from the
-/// reflection cache.
+/// 可以选择是否从反射缓存中删除成员的谓词的委托。
+/// Delegate for predicates that can choose whether to remove a member from the reflection cache.
 /// </summary>
 /// <param name="member">
 /// The member information (will be an instance of a more-derived type). This

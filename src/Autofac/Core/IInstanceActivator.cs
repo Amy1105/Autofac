@@ -6,6 +6,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core;
 
 /// <summary>
+/// 激活组件实例。
 /// Activates component instances.
 /// </summary>
 public interface IInstanceActivator : IDisposable

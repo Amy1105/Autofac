@@ -6,6 +6,7 @@ using System.Reflection;
 namespace Autofac.Core;
 
 /// <summary>
+/// 用于为容器创建的实例上的构造函数参数或属性提供值。
 /// Used in order to provide a value to a constructor parameter or property on an instance
 /// being created by the container.
 /// </summary>

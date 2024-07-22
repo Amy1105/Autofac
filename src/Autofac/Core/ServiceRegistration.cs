@@ -7,6 +7,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义服务管道和注册的组合。用于实例化一个<see cref=“ResolveRequest”/>。
 /// Defines a combination of a service pipeline and a registration. Used to instantiate a <see cref="ResolveRequest"/>.
 /// </summary>
 public readonly struct ServiceRegistration : IEquatable<ServiceRegistration>

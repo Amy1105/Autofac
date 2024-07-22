@@ -4,8 +4,8 @@
 namespace Autofac.Core;
 
 /// <summary>
-/// Fired before the activation process to allow parameters to be changed or an alternative
-/// instance to be provided.
+/// 在激活过程之前触发，以允许更改参数或提供替代实例。
+/// Fired before the activation process to allow parameters to be changed or an alternative instance to be provided.
 /// </summary>
 public class PreparingEventArgs : EventArgs
 {

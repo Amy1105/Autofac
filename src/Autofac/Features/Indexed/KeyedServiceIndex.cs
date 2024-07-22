@@ -6,6 +6,7 @@ using Autofac.Core;
 namespace Autofac.Features.Indexed;
 
 /// <summary>
+/// 通过索引（键）类型的查找操作提供组件。
 /// Provides components by lookup operations via an index (key) type.
 /// </summary>
 /// <typeparam name="TKey">The index key type.</typeparam>

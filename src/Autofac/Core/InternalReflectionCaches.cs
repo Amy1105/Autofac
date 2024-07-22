@@ -9,6 +9,8 @@ using Autofac.Util.Cache;
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义了在相对热的路径中使用的仅限内部的已知缓存，
+/// 因此我们希望避免在<see cref="ReflectionCoacheSet.GetOrCreateCache(string)"/>中进行额外的字典查找。
 /// Defines known, internal-only caches that are used in relatively hot paths, so we want to
 /// avoid the additional dictionary lookup in <see cref="ReflectionCacheSet.GetOrCreateCache(string)"/>.
 /// </summary>

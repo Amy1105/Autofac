@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 服务是用于定位组件实例的查找键。
 /// Services are the lookup keys used to locate component instances.
 /// </summary>
 public abstract class Service

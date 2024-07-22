@@ -15,10 +15,12 @@ using Autofac.Util.Cache;
 namespace Autofac.Features.Collections;
 
 /// <summary>
+/// 提供隐式集合/列表/可枚举支持的注册源。
 /// Registration source providing implicit collection/list/enumerable support.
 /// </summary>
 /// <remarks>
 /// <para>
+/// 此注册源提供可枚举的支持，以允许解析给定类型的所有注册服务的集合。
 /// This registration source provides enumerable support to allow resolving
 /// the set of all registered services of a given type.
 /// </para>
@@ -27,6 +29,7 @@ namespace Autofac.Features.Collections;
 /// are no items of a particular type registered, it will always return an
 /// empty set rather than <see langword="null" /> or throwing an exception.
 /// This is by design.
+/// 可能不太明显的是，这也意味着任何时候没有注册特定类型的项目，它总是会返回一个空集，而不是<see langword=null/>或抛出异常。这是设计出来的。
 /// </para>
 /// <para>
 /// Consider the [possibly majority] use case where you're resolving a set
@@ -44,6 +47,7 @@ namespace Autofac.Features.Collections;
 internal class CollectionRegistrationSource : IRegistrationSource, IPerScopeRegistrationSource
 {
     /// <summary>
+    /// 检索容器要使用的未注册服务的注册。
     /// Retrieve registrations for an unregistered service, to be used
     /// by the container.
     /// </summary>

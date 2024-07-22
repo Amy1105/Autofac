@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 查找组件实例应附加到的生存期。
 /// Locates the lifetime to which instances of a component should be attached.
 /// </summary>
 public interface IComponentLifetime

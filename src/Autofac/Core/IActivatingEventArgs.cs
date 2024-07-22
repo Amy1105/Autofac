@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 在实例构建后但在该实例与任何其他实例共享或在其上调用任何成员之前被触发。
 /// Fired after the construction of an instance but before that instance
 /// is shared with any other or any members are invoked on it.
 /// </summary>

@@ -9,6 +9,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core;
 
 /// <summary>
+/// 用于解析当前<see cref="ILifetimeScope"/>的<see cred="ComponentRegistration"/>。
 /// The <see cref="ComponentRegistration" /> for resolving the current <see cref="ILifetimeScope"/>.
 /// </summary>
 internal sealed class SelfComponentRegistration : ComponentRegistration

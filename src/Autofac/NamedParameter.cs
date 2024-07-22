@@ -7,6 +7,8 @@ using Autofac.Util;
 namespace Autofac;
 
 /// <summary>
+/// 由名称标识的参数。当应用于基于反射的组件时，<see-cref="Name"/>将与组件构造函数参数的名称相匹配。
+/// 当应用于基于委托的组件时，可以使用<see cref="ParameterExtensions.Named{T}"/>访问该参数。
 /// A parameter identified by name. When applied to a reflection-based
 /// component, <see cref="Name"/> will be matched against
 /// the name of the component's constructor arguments. When applied to

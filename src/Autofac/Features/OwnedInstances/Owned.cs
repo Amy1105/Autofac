@@ -7,6 +7,7 @@ using Autofac.Util;
 namespace Autofac.Features.OwnedInstances;
 
 /// <summary>
+/// 表示依赖组件可以释放的依赖关系。
 /// Represents a dependency that can be released by the dependent component.
 /// </summary>
 /// <typeparam name="T">The service provided by the dependency.</typeparam>

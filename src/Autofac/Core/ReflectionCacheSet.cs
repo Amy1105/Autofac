@@ -3,11 +3,13 @@
 
 using System.Collections.Concurrent;
 using System.Reflection;
+using System.Runtime.Intrinsics.X86;
 using Autofac.Util.Cache;
 
 namespace Autofac.Core;
 
 /// <summary>
+/// 定义反射相关数据的所有缓存集。使用<see cref="shared"/> 访问共享实例。
 /// Defines the set of all caches of reflection-related data.
 /// Access the shared instance using <see cref="Shared"/>.
 /// </summary>

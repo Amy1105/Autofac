@@ -9,6 +9,7 @@ namespace Autofac.Features.OwnedInstances;
 /// <summary>
 /// Generates registrations for services of type <see cref="Owned{T}"/> whenever the service
 /// T is available.
+/// 每当服务T可用时，生成类型为<see cref="Owned{T}"/>的服务的注册。
 /// </summary>
 internal class OwnedInstanceRegistrationSource : ImplicitRegistrationSource
 {

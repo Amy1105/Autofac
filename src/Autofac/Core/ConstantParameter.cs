@@ -7,6 +7,7 @@ namespace Autofac.Core;
 
 /// <summary>
 /// Base class for parameters that provide a constant value.
+/// 提供常数值的参数的基类。
 /// </summary>
 public abstract class ConstantParameter : Parameter
 {

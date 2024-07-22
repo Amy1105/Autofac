@@ -6,6 +6,9 @@ using Autofac.Features.ResolveAnything;
 
 namespace Autofac.Test.Concurrency;
 
+/// <summary>
+/// 并发测试
+/// </summary>
 public sealed class ConcurrencyTests
 {
     [Fact]

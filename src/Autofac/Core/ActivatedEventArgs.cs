@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 当新实例的激活过程完成时触发。
 /// Fired when the activation process for a new instance is complete.
 /// </summary>
 public class ActivatedEventArgs<T> : EventArgs, IActivatedEventArgs<T>

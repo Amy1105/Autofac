@@ -4,6 +4,7 @@
 namespace Autofac.Features.Metadata;
 
 /// <summary>
+/// 提供一个值以及描述该值的元数据字典。
 /// Provides a value along with a dictionary of metadata describing the value.
 /// </summary>
 /// <typeparam name="T">The type of the value.</typeparam>

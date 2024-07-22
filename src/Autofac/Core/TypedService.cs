@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 根据可分配的类型标识服务。
 /// Identifies a service according to a type to which it can be assigned.
 /// </summary>
 public sealed class TypedService : Service, IServiceWithType, IEquatable<TypedService>

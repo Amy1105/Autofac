@@ -33,6 +33,7 @@ public interface IContainer : ILifetimeScope
     /// <summary>
     /// Gets the <see cref="DiagnosticListener"/> to which
     /// trace events should be written.
+    /// 获取跟踪事件应写入的<see-cref="DiagnosticListener"/>。
     /// </summary>
     DiagnosticListener DiagnosticSource { get; }
 }

@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 确定何时释放支持IDisposable的实例。
 /// Determines when instances supporting IDisposable are disposed.
 /// </summary>
 public enum InstanceOwnership

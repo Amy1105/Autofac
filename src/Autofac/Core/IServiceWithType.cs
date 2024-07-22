@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 由携带类型信息的服务支持的接口。
 /// Interface supported by services that carry type information.
 /// </summary>
 public interface IServiceWithType

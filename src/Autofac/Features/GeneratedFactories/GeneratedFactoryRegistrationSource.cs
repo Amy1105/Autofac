@@ -15,6 +15,7 @@ internal class GeneratedFactoryRegistrationSource : IRegistrationSource
     /// <summary>
     /// Retrieve registrations for an unregistered service, to be used
     /// by the container.
+    /// 检索容器要使用的未注册服务的注册。
     /// </summary>
     /// <param name="service">The service that was requested.</param>
     /// <param name="registrationAccessor">A function that will return existing registrations for a service.</param>

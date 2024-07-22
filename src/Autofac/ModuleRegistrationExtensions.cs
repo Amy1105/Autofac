@@ -8,6 +8,7 @@ using Autofac.Core.Registration;
 namespace Autofac;
 
 /// <summary>
+/// 用于在容器中注册<see cref="IModule"/>实例的扩展方法。
 /// Extension methods for registering <see cref="IModule"/> instances with a container.
 /// </summary>
 public static class ModuleRegistrationExtensions

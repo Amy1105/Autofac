@@ -12,6 +12,7 @@ namespace Autofac;
 public static class ContainerExtensions
 {
     /// <summary>
+    /// 为Autofac事件订阅诊断跟踪器。
     /// Subscribes a diagnostic tracer to Autofac events.
     /// </summary>
     /// <param name="container">The container with the diagnostics to which you want to subscribe.</param>

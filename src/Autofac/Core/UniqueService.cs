@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 一种方便的唯一服务标识符类型——所有实例都将被视为不相等的。
 /// A handy unique service identifier type - all instances will be regarded as unequal.
 /// </summary>
 public sealed class UniqueService : Service

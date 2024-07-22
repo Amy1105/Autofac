@@ -4,6 +4,7 @@
 namespace Autofac.Core;
 
 /// <summary>
+/// 除了类型外，还使用密钥标识服务。
 /// Identifies a service using a key in addition to its type.
 /// </summary>
 public sealed class KeyedService : Service, IServiceWithType, IEquatable<KeyedService>

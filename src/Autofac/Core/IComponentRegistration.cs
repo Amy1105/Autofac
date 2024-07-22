@@ -7,6 +7,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core;
 
 /// <summary>
+/// 描述容器中的逻辑组件。
 /// Describes a logical component within the container.
 /// </summary>
 public interface IComponentRegistration : IDisposable, IAsyncDisposable
