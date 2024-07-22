@@ -14,6 +14,7 @@ using Autofac.Features.OwnedInstances;
 namespace Autofac;
 
 /// <summary>
+/// 用于从组件注册构建<see-cref=“IContainer”/>。
 /// Used to build an <see cref="IContainer"/> from component registrations.
 /// </summary>
 /// <example>

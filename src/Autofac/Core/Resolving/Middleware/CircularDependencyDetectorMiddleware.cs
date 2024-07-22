@@ -87,6 +87,7 @@ internal class CircularDependencyDetectorMiddleware : IResolveMiddleware
 
         try
         {
+            //循环依赖性检查已完成，请进入下一阶段。
             // Circular dependency check is done, move to the next stage.
             next(context);
         }

@@ -14,6 +14,7 @@ namespace Autofac;
 
 /// <summary>
 /// <para>
+/// <see cref="ILifetimeScope"/>跟踪组件实例的实例化。它定义了一个共享和配置实例的边界。
 /// An <see cref="ILifetimeScope"/> tracks the instantiation of component instances.
 /// It defines a boundary in which instances are shared and configured.
 /// </para>
@@ -80,9 +81,9 @@ public interface ILifetimeScope : IComponentContext, IDisposable, IAsyncDisposab
     ILifetimeScope BeginLifetimeScope(object tag);
 
     /// <summary>
+    /// 开始一个新的嵌套作用域，其中包含可用的其他组件。通过新作用域创建的组件实例将与其一起处置。
     /// Begin a new nested scope, with additional components available to it.
-    /// Component instances created via the new scope
-    /// will be disposed along with it.
+    /// Component instances created via the new scope will be disposed along with it.
     /// </summary>
     /// <remarks>
     /// <para>

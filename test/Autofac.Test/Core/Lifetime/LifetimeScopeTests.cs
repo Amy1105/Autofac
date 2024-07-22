@@ -20,6 +20,7 @@ public class LifetimeScopeTests
         const string childInstance = "c";
 
         var builder = new ContainerBuilder();
+        // _dynamicRegistrationSources    外部注册来源list中，添加一个
         builder.ComponentRegistryBuilder.AddRegistrationSource(new ObjectRegistrationSource(parentInstance));
 
         var parent = builder.Build();

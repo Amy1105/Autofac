@@ -18,11 +18,13 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
     private readonly Func<Service, IEnumerable<ServiceRegistration>> _registrationAccessor;
 
     /// <summary>
+    /// 跟踪已注册服务的状态。
     /// Keeps track of the status of registered services.
     /// </summary>
     private readonly ConcurrentDictionary<Service, ServiceRegistrationInfo> _serviceInfo = new();
 
     /// <summary>
+    /// 外部注册来源。
     /// External registration sources.
     /// </summary>
     private readonly List<IRegistrationSource> _dynamicRegistrationSources = new();
@@ -102,7 +104,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
         {
             var info = GetServiceInfo(service);
 
-            // We are in an ephemeral initialization; use the ephemeral set.
+            //我们正处于短暂的初始化阶段；使用临时集合。  We are in an ephemeral initialization; use the ephemeral set.
             if (_ephemeralServiceInfo is not null)
             {
                 info = GetEphemeralServiceInfo(_ephemeralServiceInfo, service, info);
@@ -282,6 +284,11 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
 #endif
     }
 
+    /// <summary>
+    /// 获取已初始化的服务信息
+    /// </summary>
+    /// <param name="service"></param>
+    /// <returns></returns>
     private ServiceRegistrationInfo GetInitializedServiceInfo(Service service)
     {
         var createdEphemeralSet = false;
@@ -296,7 +303,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
         }
 
         var info = GetServiceInfo(service);
-        if (info.IsInitialized)
+        if (info.IsInitialized)   //获取一个值，该值指示是否在首次请求服务时进行初始化（例如从源读取）
         {
             return info;
         }
@@ -417,6 +424,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
 
     private void BeginServiceInfoInitialization(Service service, ServiceRegistrationInfo info, IEnumerable<IRegistrationSource> registrationSources)
     {
+        //从外部源添加任何其他服务管道配置。
         // Add any additional service pipeline configuration from external sources.
         foreach (var servicePipelineSource in _servicePipelineSources)
         {

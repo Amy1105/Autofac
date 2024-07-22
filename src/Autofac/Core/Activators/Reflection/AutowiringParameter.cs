@@ -6,6 +6,7 @@ using System.Reflection;
 namespace Autofac.Core.Activators.Reflection;
 
 /// <summary>
+/// 根据目标参数类型提供值。
 /// Supplies values based on the target parameter type.
 /// </summary>
 public class AutowiringParameter : Parameter

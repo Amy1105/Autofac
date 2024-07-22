@@ -19,7 +19,7 @@ public class RecordTests
 
         builder.RegisterType<Component>();
 
-        var container = builder.Build();
+        var container = builder.Build();   //生成一个容器 Container
 
         var record = container.Resolve<Component>();
 

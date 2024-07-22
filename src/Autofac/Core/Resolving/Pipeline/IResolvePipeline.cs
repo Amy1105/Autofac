@@ -4,6 +4,7 @@
 namespace Autofac.Core.Resolving.Pipeline;
 
 /// <summary>
+/// 调用管道直到结束，或者直到抛出异常。
 /// Represents a pipeline that can be invoked to resolve an instance of a service.
 /// </summary>
 public interface IResolvePipeline

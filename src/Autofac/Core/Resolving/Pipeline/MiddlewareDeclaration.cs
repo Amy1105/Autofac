@@ -4,6 +4,7 @@
 namespace Autofac.Core.Resolving.Pipeline;
 
 /// <summary>
+/// 在管道构建器中定义一个已声明的中间件。
 /// Defines a declared piece of middleware in a pipeline builder.
 /// </summary>
 internal sealed class MiddlewareDeclaration

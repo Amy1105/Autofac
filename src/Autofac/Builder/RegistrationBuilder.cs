@@ -11,6 +11,7 @@ using Autofac.Util;
 namespace Autofac.Builder;
 
 /// <summary>
+/// 静态工厂方法，用于简化IRegistrationBuilder{L，A，R}的创建和处理。
 /// Static factory methods to simplify the creation and handling of IRegistrationBuilder{L,A,R}.
 /// </summary>
 /// <example>
@@ -55,6 +56,7 @@ public static class RegistrationBuilder
     }
 
     /// <summary>
+    /// 为提供的类型创建注册生成器。
     /// Creates a registration builder for the provided type.
     /// </summary>
     /// <typeparam name="TImplementer">Implementation type to register.</typeparam>
@@ -250,6 +252,7 @@ public static class RegistrationBuilder
     }
 
     /// <summary>
+    /// 在组件注册表中注册组件。为了执行OnRegistered钩子并尊重PreserveDefaults，此辅助方法是必要的。
     /// Register a component in the component registry. This helper method is necessary
     /// in order to execute OnRegistered hooks and respect PreserveDefaults.
     /// </summary>

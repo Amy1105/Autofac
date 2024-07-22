@@ -9,6 +9,7 @@ using Autofac.Diagnostics;
 namespace Autofac.Core.Resolving.Pipeline;
 
 /// <summary>
+/// 提供构建解析管道的功能。
 /// Provides the functionality to construct a resolve pipeline.
 /// </summary>
 /// <remarks>

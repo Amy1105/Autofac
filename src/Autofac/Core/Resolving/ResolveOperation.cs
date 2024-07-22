@@ -92,7 +92,11 @@ internal sealed class ResolveOperation : IDependencyTrackingResolveOperation
     /// <inheritdoc/>
     public SegmentedStack<ResolveRequestContext> RequestStack { get; } = new SegmentedStack<ResolveRequestContext>();
 
+
     /// <inheritdoc />
+    ///
+
+    //获取或创建实例
     public object GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, in ResolveRequest request)
     {
         if (_ended)

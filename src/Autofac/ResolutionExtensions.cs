@@ -13,12 +13,13 @@ namespace Autofac;
 /// Adds syntactic convenience methods to the <see cref="IComponentContext"/> interface.
 /// </summary>
 public static class ResolutionExtensions
-{
+{   
     /// <summary>
     /// The <see cref="NamedParameter"/> name, provided when properties are injected onto an existing instance.
     /// </summary>
     public const string PropertyInjectedInstanceTypeNamedParameter = AutowiringPropertyInjector.InstanceTypeNamedParameter;
 
+    #region InjectProperties
     /// <summary>
     /// Set any properties on <paramref name="instance"/> that can be
     /// resolved in the context.
@@ -163,6 +164,9 @@ public static class ResolutionExtensions
         return instance;
     }
 
+    #endregion
+
+    #region IsRegistered
     /// <summary>
     /// Determine whether the specified service is available in the context.
     /// </summary>
@@ -257,7 +261,10 @@ public static class ResolutionExtensions
         return IsRegisteredWithKey(context, serviceName, serviceType);
     }
 
+    #endregion
+
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The service to retrieve.</typeparam>
@@ -265,13 +272,14 @@ public static class ResolutionExtensions
     /// <returns>The component instance that provides the service.</returns>
     /// <exception cref="ComponentNotRegisteredException" />
     /// <exception cref="DependencyResolutionException" />
-    public static TService Resolve<TService>(this IComponentContext context)
+    public static TService Resolve<TService>(this IComponentContext context)  //可以访问服务或解决组件依赖关系的上下文。上下文的处置将处置所有拥有的组件
         where TService : notnull
     {
         return Resolve<TService>(context, ResolveRequest.NoParameters);
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -289,6 +297,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -306,6 +315,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -321,6 +331,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -337,6 +348,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -353,6 +365,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -370,6 +383,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -388,6 +402,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -406,6 +421,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -422,6 +438,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -439,6 +456,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -456,6 +474,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -473,6 +492,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -491,6 +511,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <typeparam name="TService">The type to which the result will be cast.</typeparam>
@@ -509,6 +530,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -525,6 +547,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -542,6 +565,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
@@ -559,6 +583,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -575,6 +600,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -592,6 +618,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -609,6 +636,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -624,6 +652,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -640,6 +669,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -656,6 +686,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务。
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -673,8 +704,8 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
-    /// Retrieve a service from the context, or null if the service is not
-    /// registered.
+    ///  从上下文中检索服务，如果服务没有注册，则为null
+    /// Retrieve a service from the context, or null if the service is not registered.
     /// </summary>
     /// <param name="context">The context from which to resolve the service.</param>
     /// <param name="parameters">Parameters for the service.</param>
@@ -691,6 +722,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    ///  从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -709,6 +741,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    ///  从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -726,6 +759,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    ///  从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -744,6 +778,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    ///  从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -762,6 +797,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    ///  从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -777,6 +813,7 @@ public static class ResolutionExtensions
     }
 
     /// <summary>
+    /// 从上下文中检索服务，如果服务没有注册，则为null
     /// Retrieve a service from the context, or null if the service is not
     /// registered.
     /// </summary>
@@ -1098,6 +1135,7 @@ public static class ResolutionExtensions
             throw new ArgumentNullException(nameof(context));
         }
 
+                                        //获取已初始化的服务信息
         if (!context.ComponentRegistry.TryGetServiceRegistration(service, out var serviceRegistration))
         {
             instance = null;

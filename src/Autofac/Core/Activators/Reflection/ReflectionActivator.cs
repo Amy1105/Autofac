@@ -10,6 +10,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core.Activators.Reflection;
 
 /// <summary>
+/// 使用反射来激活类型的实例。
 /// Uses reflection to activate instances of a type.
 /// </summary>
 public class ReflectionActivator : InstanceActivator, IInstanceActivator
@@ -132,6 +133,7 @@ public class ReflectionActivator : InstanceActivator, IInstanceActivator
 
         if (binders.Length == 1)
         {
+            //使用单个构造函数激活
             UseSingleConstructorActivation(pipelineBuilder, binders[0]);
 
             return;
@@ -158,6 +160,14 @@ public class ReflectionActivator : InstanceActivator, IInstanceActivator
         });
     }
 
+
+    /// <summary>
+    /// 使用单个构造函数激活
+    /// </summary>
+    /// <param name="pipelineBuilder"></param>
+    /// <param name="singleConstructor"></param>
+    /// <exception cref="NoConstructorsFoundException"></exception>
+    /// <exception cref="DependencyResolutionException"></exception>
     private void UseSingleConstructorActivation(IResolvePipelineBuilder pipelineBuilder, ConstructorBinder singleConstructor)
     {
         if (singleConstructor.ParameterCount == 0)
@@ -211,6 +221,7 @@ public class ReflectionActivator : InstanceActivator, IInstanceActivator
     }
 
     /// <summary>
+    /// 在提供的上下文中激活实例。
     /// Activate an instance in the provided context.
     /// </summary>
     /// <param name="context">Context in which to activate instances.</param>

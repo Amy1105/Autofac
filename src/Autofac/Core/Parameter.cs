@@ -16,6 +16,7 @@ namespace Autofac.Core;
 public abstract class Parameter
 {
     /// <summary>
+    /// 如果参数能够为特定站点提供值，则返回true。
     /// Returns true if the parameter is able to provide a value to a particular site.
     /// </summary>
     /// <param name="pi">Constructor, method, or property-mutator parameter.</param>

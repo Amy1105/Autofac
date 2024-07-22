@@ -6,9 +6,10 @@ using System.Diagnostics;
 namespace Autofac;
 
 /// <summary>
+/// 创建、连接依赖关系并管理一组组件的生命周期。大多数<see-cref="IContainer"/>实例
+/// 都是由<see-cref="ContainerBuilder"/>创建的。
 /// Creates, wires dependencies and manages lifetime for a set of components.
-/// Most instances of <see cref="IContainer"/> are created
-/// by a <see cref="ContainerBuilder"/>.
+/// Most instances of <see cref="IContainer"/> are created by a <see cref="ContainerBuilder"/>.
 /// </summary>
 /// <example>
 /// <code>
@@ -33,7 +34,7 @@ public interface IContainer : ILifetimeScope
     /// <summary>
     /// Gets the <see cref="DiagnosticListener"/> to which
     /// trace events should be written.
-    /// 获取跟踪事件应写入的<see-cref="DiagnosticListener"/>。
+    /// 获取跟踪事件应写入的<see-cref='DiagnosticListener'/>。
     /// </summary>
     DiagnosticListener DiagnosticSource { get; }
 }

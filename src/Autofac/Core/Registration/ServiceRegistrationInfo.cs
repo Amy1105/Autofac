@@ -7,6 +7,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core.Registration;
 
 /// <summary>
+/// 跟踪注册表已知的服务。
 /// Tracks the services known to the registry.
 /// </summary>
 internal class ServiceRegistrationInfo : IResolvePipelineBuilder
@@ -18,18 +19,21 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     private IComponentRegistration? _fixedRegistration;
 
     /// <summary>
+    /// 隐式默认服务实现列表。覆盖默认实现被附加到末尾，因此枚举也应该从末尾开始，最后是最默认的实现。
     ///  List of implicit default service implementations. Overriding default implementations are appended to the end,
     ///  so the enumeration should begin from the end too, and the most default implementation comes last.
     /// </summary>
     private readonly List<IComponentRegistration> _defaultImplementations = new();
 
     /// <summary>
+    /// 来自源代码的服务实现列表。源优先于保留默认实现。源代码中的实现以保留默认顺序枚举，因此最默认的实现排在第一位。
     ///  List of service implementations coming from sources. Sources have priority over preserve-default implementations.
     ///  Implementations from sources are enumerated in preserve-default order, so the most default implementation comes first.
     /// </summary>
     private List<IComponentRegistration>? _sourceImplementations;
 
     /// <summary>
+    /// 使用PreserveExistingDefaults 选项指定的显式服务实现列表。按保留默认值的顺序枚举，因此最默认的实现排在第一位。
     ///  List of explicit service implementations specified with the PreserveExistingDefaults option.
     ///  Enumerated in preserve-defaults order, so the most default implementation comes first.
     /// </summary>
@@ -39,6 +43,7 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     private IComponentRegistration? _defaultImplementation;
 
     /// <summary>
+    /// 用于记账，使同一来源不会被查询两次（可能为空）。
     /// Used for bookkeeping so that the same source is not queried twice (may be null).
     /// </summary>
     private Queue<IRegistrationSource>? _sourcesToQuery;
@@ -48,12 +53,14 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     private IResolvePipelineBuilder? _customPipelineBuilder;
 
     /// <summary>
+    /// 初始化<see cref="ServiceRegistrationInfo"/>类的新实例。
     /// Initializes a new instance of the <see cref="ServiceRegistrationInfo"/> class.
     /// </summary>
-    /// <param name="service">The tracked service.</param>
+    /// <param name="service">跟踪服务。 The tracked service.</param>
     public ServiceRegistrationInfo(Service service) => _service = service;
 
     /// <summary>
+    /// 获取一个值，该值指示是否在首次请求服务时进行初始化（例如从源读取）。然后，该值将设置为true。在初始化之前调用此类型的许多方法是错误的。
     /// Gets a value indicating whether the first time a service is requested, initialization (e.g. reading from sources)
     /// happens. This value will then be set to true. Calling many methods on this type before
     /// initialization is an error.
@@ -65,11 +72,13 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     }
 
     /// <summary>
+    /// 获取或设置表示当前初始化深度的值。初始化的服务块将始终为零。
     /// Gets or sets a value representing the current initialization depth. Will always be zero for initialized service blocks.
     /// </summary>
     public int InitializationDepth { get; set; }
 
     /// <summary>
+    /// 获取已知的实现。第一个实现是默认实现。
     /// Gets the known implementations. The first implementation is a default one.
     /// </summary>
     public IEnumerable<IComponentRegistration> Implementations
@@ -109,11 +118,13 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     }
 
     /// <summary>
+    /// 获取服务管道。如果未初始化，将抛出。
     /// Gets the service pipeline. Will throw if not initialized.
     /// </summary>
     public IResolvePipeline ServicePipeline => _resolvePipeline ?? throw new InvalidOperationException(ServiceRegistrationInfoResources.NotInitialized);
 
     /// <summary>
+    /// 获取针对服务注册的所有中间件的集合（不包括默认中间件）。
     /// Gets the set of all middleware registered against the service (excluding the default middleware).
     /// </summary>
     public IEnumerable<IResolveMiddleware> ServiceMiddleware
@@ -142,6 +153,7 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     }
 
     /// <summary>
+    /// 获取一个值，该值指示是否已知任何实现。
     /// Gets a value indicating whether any implementations are known.
     /// </summary>
     public bool IsRegistered
@@ -154,6 +166,7 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     }
 
     /// <summary>
+    /// 获取一个值，该值指示此注册信息是否注册了任何自定义服务中间件。
     /// Gets a value indicating whether this registration info has any custom service middleware registered.
     /// </summary>
     public bool HasCustomServiceMiddleware
@@ -171,6 +184,7 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
         _preserveDefaultImplementations is not null;
 
     /// <summary>
+    /// 为服务添加实现。
     /// Add an implementation for the service.
     /// </summary>
     /// <param name="registration">The component registration.</param>
@@ -348,6 +362,7 @@ internal class ServiceRegistrationInfo : IResolvePipelineBuilder
     }
 
     /// <summary>
+    /// 创建未初始化的<see cref="ServiceRegistrationInfo"/>的副本，保留现有注册和自定义中间件
     /// Creates a copy of an uninitialized <see cref="ServiceRegistrationInfo"/>, preserving existing registrations and custom middleware.
     /// </summary>
     /// <returns>A new service registration info block.</returns>
