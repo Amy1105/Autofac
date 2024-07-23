@@ -35,6 +35,7 @@ internal sealed class MiddlewareDeclaration
     public IResolveMiddleware Middleware { get; }
 
     /// <summary>
+    /// 获取中间件的声明阶段。
     /// Gets the declared phase of the middleware.
     /// </summary>
     public PipelinePhase Phase { get; }

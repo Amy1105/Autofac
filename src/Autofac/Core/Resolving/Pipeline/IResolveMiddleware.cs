@@ -9,6 +9,7 @@ namespace Autofac.Core.Resolving.Pipeline;
 public interface IResolveMiddleware
 {
     /// <summary>
+    /// 获取要执行的解析管道的阶段。
     /// Gets the phase of the resolve pipeline at which to execute.
     /// </summary>
     PipelinePhase Phase { get; }

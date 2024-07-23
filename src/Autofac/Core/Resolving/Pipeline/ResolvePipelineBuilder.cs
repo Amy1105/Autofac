@@ -166,6 +166,11 @@ internal class ResolvePipelineBuilder : IResolvePipelineBuilder, IEnumerable<IRe
         return this;
     }
 
+    /// <summary>
+    /// MiddlewareInsertionMode ：StartOfPhase，EndOfPhase
+    /// </summary>
+    /// <param name="stage"></param>
+    /// <param name="insertionLocation"></param>
     private void AddStage(IResolveMiddleware stage, MiddlewareInsertionMode insertionLocation)
     {
         VerifyPhase(stage.Phase);
@@ -182,7 +187,7 @@ internal class ResolvePipelineBuilder : IResolvePipelineBuilder, IEnumerable<IRe
         }
 
         while (currentStage is not null)
-        {
+        {            
             if (insertionLocation == MiddlewareInsertionMode.StartOfPhase ? currentStage.Middleware.Phase >= stage.Phase : currentStage.Middleware.Phase > stage.Phase)
             {
                 if (currentStage.Previous is not null)
@@ -246,9 +251,9 @@ internal class ResolvePipelineBuilder : IResolvePipelineBuilder, IEnumerable<IRe
             var stagePhase = stage.Phase;
             return (context) =>
             {
-                // Same basic flow in if/else, but doing a one-time check for diagnostics
-                // and choosing the "diagnostics enabled" version vs. the more common
-                // "no diagnostics enabled" path: hot-path optimization.
+                // if/else中的基本流程相同，但对诊断进行一次性检查，并选择“启用诊断”版本与更常见的“未启用诊断”路径：热路径优化。
+                // Same basic flow in if/else, but doing a one-time check for diagnostics and choosing the "diagnostics enabled" version vs.
+                // the more common "no diagnostics enabled" path: hot-path optimization.
                 if (context.DiagnosticSource.IsEnabled())
                 {
                     context.DiagnosticSource.MiddlewareStart(context, stage);

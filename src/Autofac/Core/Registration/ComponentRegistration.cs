@@ -261,6 +261,7 @@ public class ComponentRegistration : Disposable, IComponentRegistration
         {
             _lateBuildPipeline.Use(StartableMiddleware.Instance);
         }
+
         // 根据Instance，构造 MiddlewareDeclaration
         if (Ownership == InstanceOwnership.OwnedByLifetimeScope)
         {

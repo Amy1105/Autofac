@@ -6,6 +6,7 @@ using Autofac.Core.Resolving.Pipeline;
 namespace Autofac.Core.Registration;
 
 /// <summary>
+/// 创建包装器组件注册只是为了将其与其他适应的注册区分开来。
 ///  A wrapper component registration created only to distinguish it from other adapted registrations.
 /// </summary>
 internal class ExternalComponentRegistration : ComponentRegistration

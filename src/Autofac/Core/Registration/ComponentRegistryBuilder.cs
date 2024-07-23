@@ -80,17 +80,17 @@ internal class ComponentRegistryBuilder : Disposable, IComponentRegistryBuilder
     /// <returns>A new component registry with the configured component registrations.</returns>
     public IComponentRegistry Build()
     {
+        // 将我们的跟踪器标记为完整；在此之后，将不再对注册表进行任何调整。
         // Mark our tracker as complete; no more adjustments to the registry will be made after this point.
         _registeredServicesTracker.Complete();
 
+        // 浏览我们所有的注册，并为每个注册构建组件管道。
         // Go through all our registrations and build the component pipeline for each one.
         foreach (var registration in _registeredServicesTracker.Registrations)
         {
             registration.BuildResolvePipeline(_registeredServicesTracker);
         }
-
         var componentRegistry = new ComponentRegistry(_registeredServicesTracker, Properties);
-
         return componentRegistry;
     }
 
