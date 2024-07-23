@@ -9,7 +9,7 @@ using Autofac.Util;
 namespace Autofac.Core.Registration;
 
 /// <summary>
-/// Keeps track of the status of registered services.
+/// 跟踪已注册服务的状态 Keeps track of the status of registered services.
 /// </summary>
 internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredServicesTracker
 {
@@ -18,7 +18,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
     private readonly Func<Service, IEnumerable<ServiceRegistration>> _registrationAccessor;
 
     /// <summary>
-    /// 跟踪已注册服务的状态。
+    /// 一个线程安全的集合  跟踪已注册服务的状态。
     /// Keeps track of the status of registered services.
     /// </summary>
     private readonly ConcurrentDictionary<Service, ServiceRegistrationInfo> _serviceInfo = new();
@@ -104,7 +104,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
         {
             var info = GetServiceInfo(service);
 
-            //我们正处于短暂的初始化阶段；使用临时集合。  We are in an ephemeral initialization; use the ephemeral set.
+            // 我们正处于短暂的初始化阶段；使用临时集合。  We are in an ephemeral initialization; use the ephemeral set.
             if (_ephemeralServiceInfo is not null)
             {
                 info = GetEphemeralServiceInfo(_ephemeralServiceInfo, service, info);
@@ -342,8 +342,8 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
             {
                 var next = info.DequeueNextSource();
 
-                // Do not query per-scope registration sources
-                // for isolated services.
+                // Do not query per-scope registration sources  for isolated services.
+                // 不要查询隔离服务的每个范围的注册源。
                 if (isScopeIsolatedService && next is IPerScopeRegistrationSource)
                 {
                     continue;
@@ -351,8 +351,9 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
 
                 foreach (var provided in next.RegistrationsFor(service, _registrationAccessor))
                 {
-                    // This ensures that multiple services provided by the same
-                    // component share a single component (we don't re-query for them)
+                    // This ensures that multiple services provided by the same component share a single component (we don't re-query for them)
+                    // 这确保了同一组件提供的多个服务共享一个组件（我们不会重新查询它们）
+
                     foreach (var additionalService in provided.Services)
                     {
                         var additionalInfo = GetServiceInfo(additionalService);
@@ -363,7 +364,7 @@ internal class DefaultRegisteredServicesTracker : Disposable, IRegisteredService
 
                         if (_ephemeralServiceInfo is not null)
                         {
-                            // Use ephemeral info for additional services.
+                            //将临时信息用于其他服务。  Use ephemeral info for additional services.
                             additionalInfo = GetEphemeralServiceInfo(_ephemeralServiceInfo, service, info);
                         }
 

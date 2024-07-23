@@ -236,8 +236,8 @@ public class ComponentRegistration : Disposable, IComponentRegistration
         {
             _pipelineBuildEvent.Invoke(this, _lateBuildPipeline);
 
-            // Reset the PipelineBuilding event so we don't accidentally retain
-            // references we don't need to.
+            // Reset the PipelineBuilding event so we don't accidentally retain  references we don't need to.
+            // 重置PipelineBuilding事件，这样我们就不会意外地保留不需要的引用。
             _pipelineBuildEvent = null;
         }
 
@@ -245,6 +245,7 @@ public class ComponentRegistration : Disposable, IComponentRegistration
     }
 
     /// <summary>
+    /// 基于注册用中间件填充解析管道，并构建管道。
     /// Populates the resolve pipeline with middleware based on the registration, and builds the pipeline.
     /// </summary>
     /// <param name="registryServices">The known set of all services.</param>
@@ -255,11 +256,12 @@ public class ComponentRegistration : Disposable, IComponentRegistration
     /// </remarks>
     protected virtual IResolvePipeline BuildResolvePipeline(IComponentRegistryServices registryServices, IResolvePipelineBuilder pipelineBuilder)
     {
+        // 根据Instance，构造 MiddlewareDeclaration
         if (HasStartableService())
         {
             _lateBuildPipeline.Use(StartableMiddleware.Instance);
         }
-
+        // 根据Instance，构造 MiddlewareDeclaration
         if (Ownership == InstanceOwnership.OwnedByLifetimeScope)
         {
             // Add the disposal tracking stage.
@@ -267,11 +269,15 @@ public class ComponentRegistration : Disposable, IComponentRegistration
         }
 
         // Add activator error propagation (want it to run outer-most in the Activator phase).
+        // 添加激活器错误传播（希望它在激活器阶段最外层运行）。
+
+        // 根据Instance，构造 MiddlewareDeclaration
         _lateBuildPipeline.Use(ActivatorErrorHandlingMiddleware.Instance, MiddlewareInsertionMode.StartOfPhase);
 
-        // Allow the activator to configure the pipeline.
+        // 允许激活器配置管道。 Allow the activator to configure the pipeline.
         Activator.ConfigurePipeline(registryServices, _lateBuildPipeline);
 
+        // IResolvePipelineBuilder build，从最后一个last 开始，给每个 MiddlewareDeclaration 添加chain()
         return _lateBuildPipeline.Build();
     }
 

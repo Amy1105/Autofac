@@ -237,13 +237,13 @@ internal class ResolvePipelineBuilder : IResolvePipelineBuilder, IEnumerable<IRe
     private static ResolvePipeline BuildPipeline(MiddlewareDeclaration? lastDecl)
     {
         // When we build, we go through the set and construct a single call stack, starting from the end.
+        // 当我们构建时，我们遍历集合并从末尾开始构建一个调用堆栈。
         var current = lastDecl;
         Action<ResolveRequestContext>? currentInvoke = TerminateAction;
 
         Action<ResolveRequestContext> Chain(Action<ResolveRequestContext> next, IResolveMiddleware stage)
         {
             var stagePhase = stage.Phase;
-
             return (context) =>
             {
                 // Same basic flow in if/else, but doing a one-time check for diagnostics

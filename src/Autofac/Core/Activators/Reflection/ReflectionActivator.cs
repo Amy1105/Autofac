@@ -133,7 +133,7 @@ public class ReflectionActivator : InstanceActivator, IInstanceActivator
 
         if (binders.Length == 1)
         {
-            //使用单个构造函数激活
+            //使用单个构造函数激活   给pipelineBuilder添加中间件方法
             UseSingleConstructorActivation(pipelineBuilder, binders[0]);
 
             return;

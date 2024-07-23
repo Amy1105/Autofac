@@ -14,7 +14,7 @@ namespace Autofac.Core.Registration;
 internal class ComponentRegistryBuilder : Disposable, IComponentRegistryBuilder
 {
     /// <summary>
-    /// The tracker for the registered services.
+    /// 注册服务的跟踪器。 The tracker for the registered services.
     /// </summary>
     private readonly IRegisteredServicesTracker _registeredServicesTracker;
 
@@ -61,7 +61,7 @@ internal class ComponentRegistryBuilder : Disposable, IComponentRegistryBuilder
         _registeredServicesTracker.Registered -= OnRegistered;
         _registeredServicesTracker.RegistrationSourceAdded -= OnRegistrationSourceAdded;
 
-        // Do not call the base, otherwise the standard Dispose will fire.
+        // 不要调用base，否则标准的Dispose会着火。 Do not call the base, otherwise the standard Dispose will fire.
         return _registeredServicesTracker.DisposeAsync();
     }
 

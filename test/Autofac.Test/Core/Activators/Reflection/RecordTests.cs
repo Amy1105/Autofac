@@ -14,19 +14,22 @@ public class RecordTests
     {
         var builder = new ContainerBuilder();
 
+        // 向registeredServicesTracker.Registrations中注册
         builder.RegisterType<OtherComponent>().As<IOtherService>();
         builder.RegisterType<OtherComponent2>().As<IOtherService2>();
 
         builder.RegisterType<Component>();
 
-        var container = builder.Build();   //生成一个容器 Container
+        // 循环registeredServicesTracker.Registrations，为每个类构建 BuildResolvePipeline,把具体的构造执行方法放到中间件方法中；
+
+        var container = builder.Build();   // 生成一个容器 Container
 
         var record = container.Resolve<Component>();
 
         Assert.IsType<OtherComponent>(record.Service);
     }
 
-    private interface IOtherService
+    private interface IOtherService 
     {
     }
 

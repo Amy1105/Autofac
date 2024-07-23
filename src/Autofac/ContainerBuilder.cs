@@ -162,7 +162,7 @@ public sealed class ContainerBuilder
     /// Build enables support for the relationship types that come with Autofac (e.g.
     /// Func, Owned, Meta, Lazy, IEnumerable.) To exclude support for these types,
     /// first create the container, then call Update() on the builder.
-    /// 每次只能调用一次构建<see cref=“ContainerBuilder”/>
+    /// 每次只能调用一次构建<see cref='ContainerBuilder'/>
     /// -这可以防止所提供实例的所有权问题。Build支持Autofac附带的关系类型（例如，Unc、Owned、Meta、Lazy、IEnumerable）。要排除对这些类型的支持，
     /// 首先创建容器，然后在构建器上调用Update（）。
     /// </remarks>
